@@ -26,7 +26,7 @@ def makeTrustyImageURL(score):
         return 'https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg'
 
 
-def run():
+def run(site):
 
     response = req.get('https://uk.trustpilot.com/review/'+site+'?utm_medium=trustbox&utm_source=MicroStar')
     if response.status_code == 200:
@@ -80,5 +80,5 @@ def run():
 
 
 def hello(event, context):
-        return run()
+        return run("sitename.com") ## this will be the value that is after the `https://uk.trustpilot.com/review/` domain, example: https://uk.trustpilot.com/review/www.google.com ... value `site` is "www.google.com"
 
